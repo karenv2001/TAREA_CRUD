@@ -120,5 +120,72 @@ namespace _02_CRUD.Controladores
             }
         
         }
+
+
+        public (Usuario_Model, string error) editar(Usuario_Model usuario)
+        {
+            if (usuario == null) return (null, "Los campos son requeridos");
+            using (var cn = _cn.obtenerConexion())
+            {
+                string cadena = @"update Usuarios set Nombre_Usuario=@Nombre_Usuario, Apellido_Usuario=@Apellido_Usuario, contasenia=@contasenia, Estado=@Estado, Correo_Usuario = @Correo_Usuario where Id_Usuario =@Id_Usuario";
+                using (var cmd = new SqlCommand(cadena, cn))
+                {
+                    cmd.Parameters.Add("@Nombre_Usuario", SqlDbType.NVarChar, 50).Value = usuario.Nombre_Usuario;
+                    cmd.Parameters.Add("@Apellido_Usuario", SqlDbType.NVarChar, 50).Value = usuario.Apellido_Usuario;
+                    cmd.Parameters.Add("@Cedula_Usuario", SqlDbType.NVarChar, 50).Value = usuario.Cedula_Usuario;
+                    cmd.Parameters.Add("@Estado", SqlDbType.Bit).Value = usuario.Estado;
+                    cmd.Parameters.Add("@contasenia", SqlDbType.NVarChar, 50).Value = usuario.contasenia;
+                    cmd.Parameters.Add("@Correo_Usuario", SqlDbType.NVarChar, 50).Value = usuario.Correo_Usuario;
+                    cmd.Parameters.Add("@Id_Usuario", SqlDbType.Int).Value = usuario.Id_Usuario;
+                    try
+                    {
+                        cn.Open();
+                        int id = (int)cmd.ExecuteNonQuery();
+                        if (id >= 1)
+                        {
+                            return (usuario, "");
+                        }
+                        else
+                        {
+                            return (null, "Ocurrio un error al guardar");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        return (null, "Ocurrio un error al guardar" + ex.Message);
+                    }
+                }
+            }
+        }
+
+        public Usuario_Model uno(int id_usuario)
+        {
+            using (var cn = _cn.obtenerConexion())
+            {
+                cn.Open();
+                string cadena = "SELECT Usuarios.* FROM " +
+                    "Usuarios where Id_Usuario=" + id_usuario +"and estado = 1";
+
+                using (SqlCommand cmd = new SqlCommand(cadena, cn))
+                {
+                    using (SqlDataReader lector = cmd.ExecuteReader())
+                    {
+                        if (lector == null) return null;
+                        lector.Read();
+                            Usuario_Model usuario = new Usuario_Model
+                            {
+                                Apellido_Usuario = lector["Apellido_Usuario"].ToString(),
+                                Cedula_Usuario = lector["Cedula_Usuario"].ToString(),
+                                contasenia = lector["contasenia"].ToString(),
+                                Correo_Usuario = lector["Correo_Usuario"].ToString(),
+                                Estado = (bool)lector["Estado"],
+                                Nombre_Usuario = lector["Nombre_Usuario"].ToString(),
+                                Id_Usuario = (int)lector["Id_Usuario"],
+                            };
+                            return usuario;
+                    }
+                }
+            }
+       }
     }
 }

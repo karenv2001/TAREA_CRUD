@@ -51,11 +51,29 @@ namespace _02_CRUD.Vistas.Usuarios
             }
         }
 
-        public void cargarlista() {
+        public void cargarlista()
+        {
             lst_lista_usuarios.DataSource = _usuarios.todos_usuarios();
             lst_lista_usuarios.ValueMember = "Id_Usuario";
             lst_lista_usuarios.DisplayMember = "nombre_completo";
 
+        }
+
+        private void btn_editar_Click(object sender, EventArgs e)
+        {
+
+            if (lst_lista_usuarios.SelectedIndex == -1)
+            {
+                MessageBox.Show("Seleccione el usuario para editar");
+            }
+            else
+            {
+                int id_Usuario = (int)lst_lista_usuarios.SelectedValue;
+
+                var edita_usuario = new frm_edita_usuario(id_Usuario);
+                edita_usuario.ShowDialog();
+                this.Close();
+            }
         }
     }
 }

@@ -7,6 +7,9 @@
     <Compile Update="Vistas\frm_login.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Vistas\Usuarios\frm_edita_usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Vistas\Usuarios\frm_insertar_usuario.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -25,3 +25,5 @@ D:\UNIANDES\Estudiantes\POO II\02_CRUD\bin\Debug\net8.0-windows\runtimes\win\lib
 D:\UNIANDES\Estudiantes\POO II\02_CRUD\obj\Debug\net8.0-windows\02_CRUD.csproj.AssemblyReference.cache
 D:\UNIANDES\Estudiantes\POO II\02_CRUD\obj\Debug\net8.0-windows\02_CRUD.csproj.Up2Date
 D:\UNIANDES\Estudiantes\POO II\02_CRUD\obj\Debug\net8.0-windows\_02_CRUD.Vistas.Usuarios.frm_insertar_usuario.resources
+D:\UNIANDES\Estudiantes\POO II\02_CRUD\obj\Debug\net8.0-windows\_02_CRUD.Vistas.Usuarios.frm_edita_usuario.resources
+D:\UNIANDES\Estudiantes\POO II\02_CRUD\obj\Debug\net8.0-windows\02_CRUD.sourcelink.json

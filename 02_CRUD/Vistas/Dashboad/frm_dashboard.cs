@@ -17,7 +17,13 @@
         private void agregaUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var frm_insrtar = new frm_insertar_usuario();
-            frm_insrtar.ShowDialog();   
+            frm_insrtar.ShowDialog();
+        }
+
+        private void editarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm_lista_usuarios = new frm_lista_usuarios();
+            frm_lista_usuarios.ShowDialog();
         }
     }
 }

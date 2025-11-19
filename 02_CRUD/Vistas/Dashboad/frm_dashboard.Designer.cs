@@ -263,6 +263,7 @@
             editarUsuariosToolStripMenuItem.Name = "editarUsuariosToolStripMenuItem";
             editarUsuariosToolStripMenuItem.Size = new Size(180, 22);
             editarUsuariosToolStripMenuItem.Text = "Editar Usuarios";
+            editarUsuariosToolStripMenuItem.Click += editarUsuariosToolStripMenuItem_Click;
             // 
             // eliminarUsuariosToolStripMenuItem
             // 

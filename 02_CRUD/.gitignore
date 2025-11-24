@@ -1,0 +1,14 @@
+# Archivos temporales de Visual Studio
+.vs/
+*.user
+*.suo
+*.db
+*.opendb
+*.cache
+
+# Build
+bin/
+obj/
+
+# Configuración temporal
+*.log
